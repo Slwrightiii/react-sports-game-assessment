@@ -37,16 +37,46 @@ function Team(props) {
                         <strong>Score:</strong> {props.stats.score}
                     </div>
 
-                    <br />
+                    
 
                     {shotPercentageDiv}
                     
-                    <br />
+                
 
                     <button onClick={props.shotHandler}>Shoot!</button>
 
             </div>
         )
+    }
+
+    function ScoreBoard (props){
+
+        return (
+
+            <div className= "ScoreBoard">
+
+                <div className= "teamStats">
+
+                    <h3>VISITORS</h3>
+                    <h3>{props.visitingTeamStats.score}</h3>
+
+
+                </div>
+
+                <h3>SCOREBOARD</h3>
+
+                <div className= "teamStats">
+
+                    <h3>HOME</h3>
+                    <h3>{props.homeTeamStats.score}</h3>
+
+
+                </div>
+
+
+            </div>
+        )
+
     }
 
 
@@ -124,6 +154,11 @@ render(){
     
         return (
         <div className= "Game">
+
+            <ScoreBoard 
+            visitingTeamStats= {this.state.visitingTeamStats}
+            homeTeamStats= {this.state.homeTeamStats}
+            />
 
             <h1>Welcome to {this.props.venue}</h1>
 
